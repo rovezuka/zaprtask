@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -42,16 +43,19 @@ func nHandler(w http.ResponseWriter, r *http.Request) {
 	n := vars["N"]
 	res, err := http.Get("https://nd.kodaktor.ru/users/" + n)
 	if err != nil {
+		fmt.Println(1)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 	defer res.Body.Close()
 	if res.StatusCode != http.StatusOK {
+		fmt.Println(2)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 	var resp Response
 	if err := json.NewDecoder(res.Body).Decode(&resp); err != nil {
+		fmt.Println(3)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
