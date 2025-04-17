@@ -16,7 +16,7 @@ type Response struct {
 func main() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/login/", loginHandler)
+	router.HandleFunc("/login", loginHandler)
 
 	router.HandleFunc("/users/{N}", nHandler)
 
