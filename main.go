@@ -49,7 +49,7 @@ func nHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer res.Body.Close()
 	if res.StatusCode != http.StatusOK {
-		fmt.Println(2)
+		fmt.Println(res.StatusCode)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
