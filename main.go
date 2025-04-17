@@ -18,7 +18,7 @@ func main() {
 
 	router.HandleFunc("/login", loginHandler)
 
-	router.HandleFunc("/users/{N}", nHandler)
+	router.HandleFunc("/id/{N}", nHandler)
 
 	port := "5000"
 	if p := os.Getenv("PORT"); p != "" {
